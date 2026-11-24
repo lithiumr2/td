@@ -1,0 +1,13 @@
+# Archivos generados automáticamente por Godot 4
+.godot/
+
+# Archivos específicos del editor o del sistema
+*.translation
+export_presets.cfg
+
+# Binarios exportados
+*.exe
+*.x86_64
+*.pck
+*.apk
+*.aab
