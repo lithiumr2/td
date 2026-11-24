@@ -1,0 +1,130 @@
+[gd_scene format=3 uid="uid://bcb3mxr3ksepi"]
+
+[ext_resource type="Script" uid="uid://dupck7p4r8on3" path="res://scripts/selector.gd" id="1_b7g8k"]
+[ext_resource type="Texture2D" uid="uid://dilwe0p16e6qw" path="res://tile/torreta.png" id="2_nurdm"]
+[ext_resource type="Texture2D" uid="uid://xx5u31f45bj6" path="res://tile/torreta 2.png" id="3_nr5l5"]
+[ext_resource type="Script" uid="uid://bfujuvbfukq7g" path="res://scripts/botonselector.gd" id="3_nurdm"]
+[ext_resource type="Resource" uid="uid://c3t847v4hyvl1" path="res://resorces/torreta.tres" id="5_b7g8k"]
+[ext_resource type="Resource" uid="uid://bjkyjx5d63y3l" path="res://resorces/torreta_2.tres" id="7_oek4p"]
+
+[sub_resource type="GDScript" id="GDScript_4nox3"]
+script/source = "extends Button
+
+func _pressed() -> void:
+	Eb.init_round.emit()
+"
+
+[node name="Selector" type="CanvasLayer" unique_id=1814031075]
+script = ExtResource("1_b7g8k")
+
+[node name="VirtualJoystick" type="VirtualJoystick" parent="." unique_id=1068968209]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 103.0
+offset_top = -118.0
+offset_right = 143.0
+offset_bottom = -78.0
+grow_vertical = 0
+size_flags_horizontal = 0
+size_flags_vertical = 8
+action_left = &"izquierda"
+action_right = &"derecha"
+action_up = &"arriba"
+action_down = &"abajo"
+
+[node name="Menu" type="Panel" parent="." unique_id=1893865292]
+custom_minimum_size = Vector2(200, 0)
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 0
+grow_vertical = 2
+
+[node name="Construcion" type="MarginContainer" parent="Menu" unique_id=719126614 groups=["construcion"]]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -110.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Menu/Construcion" unique_id=1399567487 groups=["construcion"]]
+layout_mode = 2
+alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Menu/Construcion/VBoxContainer" unique_id=184004468 groups=["construcion"]]
+layout_mode = 2
+
+[node name="Button2" type="Button" parent="Menu/Construcion/VBoxContainer/VBoxContainer" unique_id=1831006028 groups=["construcion"]]
+layout_mode = 2
+text = "torreta 2"
+icon = ExtResource("3_nr5l5")
+clip_text = true
+expand_icon = true
+script = ExtResource("3_nurdm")
+datos = ExtResource("7_oek4p")
+
+[node name="Button" type="Button" parent="Menu/Construcion/VBoxContainer/VBoxContainer" unique_id=2032515732 groups=["construcion"]]
+layout_mode = 2
+text = "torreta"
+icon = ExtResource("2_nurdm")
+script = ExtResource("3_nurdm")
+datos = ExtResource("5_b7g8k")
+
+[node name="ronda" type="Button" parent="Menu/Construcion/VBoxContainer" unique_id=2061193255 groups=["construcion"]]
+layout_mode = 2
+text = "iniciar"
+script = SubResource("GDScript_4nox3")
+
+[node name="TurretDesc" type="VBoxContainer" parent="Menu" unique_id=533301584 groups=["datos"]]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 648.0
+grow_horizontal = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Menu/TurretDesc" unique_id=1622364229 groups=["datos"]]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="Panel" type="Panel" parent="Menu/TurretDesc/MarginContainer" unique_id=221445790 groups=["datos"]]
+custom_minimum_size = Vector2(160, 160)
+layout_mode = 2
+
+[node name="HBoxContainer" type="VBoxContainer" parent="Menu/TurretDesc/MarginContainer/Panel" unique_id=554352317 groups=["datos"]]
+layout_mode = 0
+offset_right = 160.0
+offset_bottom = 160.0
+
+[node name="Name" type="Label" parent="Menu/TurretDesc/MarginContainer/Panel/HBoxContainer" unique_id=616487432 groups=["datos"]]
+layout_mode = 2
+text = "nothing selected"
+
+[node name="Image" type="TextureRect" parent="Menu/TurretDesc/MarginContainer/Panel/HBoxContainer" unique_id=640883121 groups=["datos"]]
+z_index = 1
+custom_minimum_size = Vector2(160, 137)
+layout_mode = 2
+texture = ExtResource("2_nurdm")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Kills" type="HBoxContainer" parent="Menu/TurretDesc" unique_id=1285628355 groups=["datos"]]
+layout_mode = 2
+
+[node name="Icon" type="TextureRect" parent="Menu/TurretDesc/Kills" unique_id=264001191 groups=["datos"]]
+layout_mode = 2
+texture = ExtResource("2_nurdm")
+
+[node name="KillsCounter" type="Label" parent="Menu/TurretDesc/Kills" unique_id=112451245 groups=["datos"]]
+layout_mode = 2
+text = "0"
+
+[node name="Description" type="Label" parent="Menu/TurretDesc" unique_id=1837312169 groups=["datos"]]
+layout_mode = 2

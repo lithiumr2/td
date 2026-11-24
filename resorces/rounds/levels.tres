@@ -1,0 +1,140 @@
+[gd_resource type="Resource" script_class="RoundList" format=3 uid="uid://b2ob7ybsry1vy"]
+
+[ext_resource type="Script" uid="uid://dgeiyhj03vedh" path="res://scripts/round_data.gd" id="1_m4dcg"]
+[ext_resource type="Script" uid="uid://c7ofngkcyoyve" path="res://scripts/round_list.gd" id="2_7wpob"]
+[ext_resource type="PackedScene" uid="uid://0wj4geqhnua5" path="res://scene/enemigo.tscn" id="2_k24yo"]
+
+[sub_resource type="Resource" id="Resource_7wpob"]
+script = ExtResource("1_m4dcg")
+nro_round = 1
+round = [{
+"cooldown": 2.05,
+"cooldown inicial": 0.0,
+"enemy": ExtResource("2_k24yo"),
+"life multiplicator": 1.0,
+"shield multiplicator": 1.0,
+"speed multiplicator": 1.0,
+"total": 10
+}]
+
+[sub_resource type="Resource" id="Resource_k24yo"]
+script = ExtResource("1_m4dcg")
+nro_round = 2
+round = [{
+"cooldown": 2.0,
+"cooldown inicial": 0.0,
+"enemy": ExtResource("2_k24yo"),
+"life multiplicator": 1.1500000000000001,
+"shield multiplicator": 1.1,
+"speed multiplicator": 1.03,
+"total": 13
+}]
+
+[sub_resource type="Resource" id="Resource_ft1p2"]
+script = ExtResource("1_m4dcg")
+nro_round = 3
+round = [{
+"cooldown": 1.95,
+"cooldown inicial": 0.0,
+"enemy": ExtResource("2_k24yo"),
+"life multiplicator": 1.3,
+"shield multiplicator": 1.2,
+"speed multiplicator": 1.06,
+"total": 16
+}]
+
+[sub_resource type="Resource" id="Resource_xhcuw"]
+script = ExtResource("1_m4dcg")
+nro_round = 4
+round = [{
+"cooldown": 1.9000000000000001,
+"cooldown inicial": 0.0,
+"enemy": ExtResource("2_k24yo"),
+"life multiplicator": 1.45,
+"shield multiplicator": 1.3,
+"speed multiplicator": 1.09,
+"total": 19
+}]
+
+[sub_resource type="Resource" id="Resource_7kikm"]
+script = ExtResource("1_m4dcg")
+nro_round = 5
+round = [{
+"cooldown": 1.85,
+"cooldown inicial": 0.0,
+"enemy": ExtResource("2_k24yo"),
+"life multiplicator": 1.6,
+"shield multiplicator": 1.4000000000000001,
+"speed multiplicator": 1.12,
+"total": 22
+}]
+
+[sub_resource type="Resource" id="Resource_1svy2"]
+script = ExtResource("1_m4dcg")
+nro_round = 6
+round = [{
+"cooldown": 1.8,
+"cooldown inicial": 0.0,
+"enemy": ExtResource("2_k24yo"),
+"life multiplicator": 1.75,
+"shield multiplicator": 1.5,
+"speed multiplicator": 1.1500000000000001,
+"total": 25
+}]
+
+[sub_resource type="Resource" id="Resource_g16ev"]
+script = ExtResource("1_m4dcg")
+nro_round = 7
+round = [{
+"cooldown": 1.75,
+"cooldown inicial": 0.0,
+"enemy": ExtResource("2_k24yo"),
+"life multiplicator": 1.9000000000000001,
+"shield multiplicator": 1.6,
+"speed multiplicator": 1.18,
+"total": 28
+}]
+
+[sub_resource type="Resource" id="Resource_8inub"]
+script = ExtResource("1_m4dcg")
+nro_round = 8
+round = [{
+"cooldown": 1.7,
+"cooldown inicial": 0.0,
+"enemy": ExtResource("2_k24yo"),
+"life multiplicator": 2.05,
+"shield multiplicator": 1.7,
+"speed multiplicator": 1.21,
+"total": 31
+}]
+
+[sub_resource type="Resource" id="Resource_v2bvh"]
+script = ExtResource("1_m4dcg")
+nro_round = 9
+round = [{
+"cooldown": 1.6500000000000001,
+"cooldown inicial": 0.0,
+"enemy": ExtResource("2_k24yo"),
+"life multiplicator": 2.2,
+"shield multiplicator": 1.8,
+"speed multiplicator": 1.24,
+"total": 34
+}]
+
+[sub_resource type="Resource" id="Resource_xqt0s"]
+script = ExtResource("1_m4dcg")
+nro_round = 10
+round = [{
+"cooldown": 1.6,
+"cooldown inicial": 0.0,
+"enemy": ExtResource("2_k24yo"),
+"life multiplicator": 2.35,
+"shield multiplicator": 1.9000000000000001,
+"speed multiplicator": 1.27,
+"total": 37
+}]
+
+[resource]
+script = ExtResource("2_7wpob")
+rounds = Array[ExtResource("1_m4dcg")]([SubResource("Resource_7wpob"), SubResource("Resource_k24yo"), SubResource("Resource_ft1p2"), SubResource("Resource_xhcuw"), SubResource("Resource_7kikm"), SubResource("Resource_1svy2"), SubResource("Resource_g16ev"), SubResource("Resource_8inub"), SubResource("Resource_v2bvh"), SubResource("Resource_xqt0s")])
+metadata/_custom_type_script = "uid://c7ofngkcyoyve"

@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://g2v3xvalpo7n"]
+
+[ext_resource type="Script" uid="uid://cjcbcnuxsnx0i" path="res://scripts/torreta.gd" id="1_pk0kb"]
+[ext_resource type="PackedScene" uid="uid://bxphxfiyk447t" path="res://scene/bala.tscn" id="2_bc8sr"]
+[ext_resource type="Texture2D" uid="uid://dilwe0p16e6qw" path="res://tile/torreta.png" id="2_kw1fr"]
+[ext_resource type="Script" uid="uid://bumaa0awa4esp" path="res://scripts/alcanzeCPN.gd" id="4_momke"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_sxv1r"]
+radius = 200.0
+
+[node name="torreta" type="Node2D" unique_id=399266539]
+script = ExtResource("1_pk0kb")
+bala = ExtResource("2_bc8sr")
+resource = "res://resorces/torreta.tres"
+metadata/_custom_type_script = "uid://cjcbcnuxsnx0i"
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=570913098]
+position = Vector2(16, 16)
+texture = ExtResource("2_kw1fr")
+
+[node name="canon1" type="Marker2D" parent="Sprite2D" unique_id=1078580276]
+position = Vector2(0, -15)
+
+[node name="AlcanzeCPN" type="Area2D" parent="." unique_id=2045663275]
+script = ExtResource("4_momke")
+metadata/_custom_type_script = "uid://bumaa0awa4esp"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AlcanzeCPN" unique_id=620649922]
+position = Vector2(16, 16)
+shape = SubResource("CircleShape2D_sxv1r")

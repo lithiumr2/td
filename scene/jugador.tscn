@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://fukntjh6wt2y"]
+
+[ext_resource type="Script" uid="uid://fgty2qex8tf3" path="res://scripts/jugador.gd" id="1_f2jwt"]
+[ext_resource type="PackedScene" uid="uid://bcb3mxr3ksepi" path="res://scene/selector.tscn" id="2_ll7jl"]
+
+[node name="jugador" type="CharacterBody2D" unique_id=502169715]
+motion_mode = 1
+script = ExtResource("1_f2jwt")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=701058182]
+
+[node name="Selector" parent="." unique_id=1814031075 instance=ExtResource("2_ll7jl")]
+
+[connection signal="seleccionado" from="Selector" to="." method="_on_selector_seleccionado"]

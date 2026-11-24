@@ -1,0 +1,6 @@
+[gd_resource type="ButtonGroup" format=3 uid="uid://bvc5khe86v1c1"]
+
+[resource]
+resource_local_to_scene = false
+resource_name = "grupo"
+allow_unpress = true

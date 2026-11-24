@@ -1,0 +1,77 @@
+[gd_scene format=4 uid="uid://c17jgc3pju5ou"]
+
+[ext_resource type="Script" uid="uid://dskwsxen4el3k" path="res://scripts/GridManager.gd" id="4_ljdu6"]
+[ext_resource type="Script" uid="uid://bqkdck2sgh37f" path="res://scripts/building_manager.gd" id="5_p1ry8"]
+[ext_resource type="Texture2D" uid="uid://v044h7ah7fkb" path="res://tile/suelo.png" id="5_xlg7c"]
+[ext_resource type="PackedScene" uid="uid://6na54fhbv73l" path="res://scene/base.tscn" id="7_qpk70"]
+[ext_resource type="Script" uid="uid://d28taq45h11oy" path="res://scripts/EnemySpawner.gd" id="8_17rxn"]
+[ext_resource type="Script" uid="uid://h8khkwre365l" path="res://scripts/control.gd" id="8_ll5lq"]
+[ext_resource type="Resource" uid="uid://b2ob7ybsry1vy" path="res://resorces/rounds/levels.tres" id="8_ym5sv"]
+[ext_resource type="PackedScene" uid="uid://bfkrg07n0q3p4" path="res://tile/node_2d.tscn" id="8_yq8tf"]
+[ext_resource type="PackedScene" uid="uid://fukntjh6wt2y" path="res://scene/jugador.tscn" id="9_17rxn"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_qpk70"]
+texture = ExtResource("5_xlg7c")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+1:0/0 = 0
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+2:0/0 = 0
+2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+0:1/0 = 0
+0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+1:1/0 = 0
+1:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+2:1/0 = 0
+2:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+0:2/0 = 0
+0:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+1:2/0 = 0
+1:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+2:2/0 = 0
+2:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+
+[sub_resource type="TileSet" id="TileSet_g7b7a"]
+tile_size = Vector2i(32, 32)
+physics_layer_0/collision_layer = 4
+physics_layer_0/collision_mask = 0
+terrain_set_0/mode = 0
+sources/0 = SubResource("TileSetAtlasSource_qpk70")
+
+[node name="game" type="Node2D" unique_id=543219401]
+
+[node name="GridManager" type="Node2D" parent="." unique_id=1747106870 node_paths=PackedStringArray("terrain_layer")]
+script = ExtResource("4_ljdu6")
+terrain_layer = NodePath("../TileMapLayer")
+
+[node name="BuildingManager" type="Node2D" parent="GridManager" unique_id=53527264 node_paths=PackedStringArray("grid_manager")]
+script = ExtResource("5_p1ry8")
+grid_manager = NodePath("..")
+
+[node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=114511161]
+tile_map_data = PackedByteArray("AAAFAAMAAAAAAAAAAAAMAAMAAAAAAAAAAAALAAMAAAAAAAAAAAAKAAMAAAAAAAAAAAAJAAMAAAAAAAAAAAAIAAMAAAAAAAAAAAAHAAMAAAAAAAAAAAAGAAMAAAAAAAAAAAAOAAMAAAAAAAAAAAANAAMAAAAAAAAAAAAPAAMAAAAAAAAAAAAQAAMAAAAAAAAAAAARAAMAAAAAAAAAAAASAAMAAAAAAAAAAAATAAMAAAAAAAAAAAAEAAMAAAAAAAAAAAAUAAMAAAAAAAAAAAAEAAQAAAABAAIAAAAPAAQAAAABAAIAAAAOAAQAAAABAAIAAAANAAQAAAABAAIAAAAMAAQAAAABAAIAAAALAAQAAAABAAIAAAAKAAQAAAABAAIAAAAJAAQAAAABAAIAAAAIAAQAAAABAAIAAAAHAAUAAAABAAIAAAAGAAUAAAABAAIAAAAFAAUAAAABAAIAAAAEAAUAAAABAAIAAAAEAAYAAAABAAIAAAAEAAcAAAACAAIAAAAUAAcAAAACAAIAAAAUAAQAAAABAAIAAAAUAAUAAAABAAIAAAAUAAYAAAABAAIAAAATAAcAAAACAAIAAAAFAAYAAAABAAIAAAAGAAYAAAABAAIAAAAHAAYAAAABAAIAAAAIAAYAAAABAAIAAAAJAAYAAAABAAIAAAAKAAYAAAABAAIAAAALAAYAAAABAAIAAAAMAAcAAAACAAIAAAANAAcAAAACAAIAAAAOAAcAAAACAAIAAAAPAAcAAAACAAIAAAAQAAcAAAACAAIAAAARAAcAAAACAAIAAAASAAcAAAACAAIAAAALAAcAAAACAAIAAAAKAAcAAAACAAIAAAAJAAcAAAACAAIAAAAIAAcAAAACAAIAAAAHAAcAAAACAAIAAAAGAAcAAAACAAIAAAAFAAcAAAACAAIAAAAMAAYAAAABAAIAAAANAAYAAAABAAIAAAAOAAYAAAABAAIAAAAPAAYAAAABAAIAAAAQAAYAAAABAAIAAAARAAYAAAABAAIAAAASAAYAAAABAAIAAAASAAUAAAABAAIAAAATAAUAAAABAAIAAAATAAQAAAABAAIAAAASAAQAAAABAAIAAAARAAQAAAABAAIAAAAQAAQAAAABAAIAAAAMAAUAAAABAAIAAAALAAUAAAABAAIAAAAKAAUAAAABAAIAAAAJAAUAAAABAAIAAAAIAAUAAAABAAIAAAAHAAQAAAABAAIAAAAGAAQAAAABAAIAAAAFAAQAAAABAAIAAAANAAUAAAABAAIAAAAOAAUAAAABAAIAAAAPAAUAAAABAAIAAAATAAYAAAABAAIAAAARAAUAAAABAAIAAAAQAAUAAAABAAIAAAADAAMAAAAAAAAAAAACAAMAAAAAAAAAAAABAAMAAAAAAAAAAAAAAAMAAAABAAAAAAAVAAMAAAAAAAAAAAAWAAMAAAAAAAAAAAAXAAMAAAAAAAAAAAAYAAMAAAAAAAAAAAAZAAMAAAAAAAAAAAAaAAMAAAAAAAAAAAAbAAMAAAAAAAAAAAAcAAMAAAAAAAAAAAAdAAMAAAAAAAAAAAAeAAMAAAAAAAAAAAAfAAMAAAAAAAAAAAAgAAMAAAAAAAAAAAAhAAMAAAAAAAAAAAAVAAcAAAACAAIAAAAWAAcAAAACAAIAAAAXAAcAAAACAAIAAAAYAAcAAAACAAIAAAAZAAcAAAACAAIAAAAaAAcAAAACAAIAAAAbAAcAAAACAAIAAAAcAAcAAAACAAIAAAAdAAcAAAACAAIAAAAeAAcAAAACAAIAAAAfAAYAAAABAAIAAAAfAAcAAAACAAIAAAAgAAcAAAACAAIAAAAhAAcAAAACAAIAAAAiAAcAAAACAAIAAAAjAAcAAAABAAEAAAAiAAMAAAAAAAAAAAAjAAMAAAAAAAEAAAADAAcAAAACAAIAAAACAAcAAAACAAIAAAABAAcAAAACAAIAAAAAAAcAAAACAAAAAAAAAAQAAAACAAEAAAAAAAUAAAACAAEAAAAAAAYAAAACAAEAAAAjAAQAAAAAAAIAAAAjAAUAAAAAAAIAAAAjAAYAAAAAAAIAAAAeAAYAAAABAAIAAAAgAAYAAAABAAIAAAAhAAYAAAABAAIAAAAiAAUAAAABAAIAAAAiAAYAAAABAAIAAAAiAAQAAAABAAIAAAAhAAQAAAABAAIAAAAgAAQAAAABAAIAAAAgAAUAAAABAAIAAAAfAAUAAAABAAIAAAAhAAUAAAABAAIAAAAeAAUAAAABAAIAAAAfAAQAAAABAAIAAAAeAAQAAAABAAIAAAAdAAQAAAABAAIAAAAcAAQAAAABAAIAAAAbAAQAAAABAAIAAAAcAAUAAAABAAIAAAAdAAUAAAABAAIAAAAbAAUAAAABAAIAAAAdAAYAAAABAAIAAAAcAAYAAAABAAIAAAAaAAUAAAABAAIAAAAZAAUAAAABAAIAAAAbAAYAAAABAAIAAAAYAAYAAAABAAIAAAAZAAYAAAABAAIAAAAaAAYAAAABAAIAAAAXAAUAAAABAAIAAAAYAAUAAAABAAIAAAAaAAQAAAABAAIAAAAZAAQAAAABAAIAAAAYAAQAAAABAAIAAAAXAAQAAAABAAIAAAAWAAQAAAABAAIAAAAVAAQAAAABAAIAAAAWAAUAAAABAAIAAAAVAAUAAAABAAIAAAAXAAYAAAABAAIAAAAWAAYAAAABAAIAAAAVAAYAAAABAAIAAAADAAQAAAABAAIAAAADAAUAAAABAAIAAAADAAYAAAABAAIAAAACAAYAAAABAAIAAAABAAYAAAABAAIAAAABAAUAAAABAAIAAAABAAQAAAABAAIAAAACAAQAAAABAAIAAAACAAUAAAABAAIAAAA=")
+tile_set = SubResource("TileSet_g7b7a")
+
+[node name="base" parent="." unique_id=343676102 groups=["base"] instance=ExtResource("7_qpk70")]
+position = Vector2(2.5999146, 75.75107)
+
+[node name="controlador" type="Node" parent="." unique_id=1003916951]
+script = ExtResource("8_ll5lq")
+metadata/_custom_type_script = "uid://h8khkwre365l"
+
+[node name="jugador" parent="." unique_id=502169715 instance=ExtResource("9_17rxn")]
+position = Vector2(573.42236, 212.65997)
+velocidad = Vector2(100, 100)
+
+[node name="enemy_base" type="Node2D" parent="." unique_id=1495602092]
+position = Vector2(1000, 80)
+script = ExtResource("8_17rxn")
+nivel = ExtResource("8_ym5sv")
+metadata/_custom_type_script = "uid://d28taq45h11oy"
+
+[node name="Node2D" parent="." unique_id=979616101 instance=ExtResource("8_yq8tf")]
+visible = false
+
+[connection signal="area_entered" from="base" to="controlador" method="_on_base_area_entered"]
+[connection signal="selecion" from="jugador" to="GridManager/BuildingManager" method="_on_jugador_selecion"]

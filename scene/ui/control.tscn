@@ -1,0 +1,39 @@
+[gd_scene format=3 uid="uid://chs8r0jakhsau"]
+
+[ext_resource type="Script" uid="uid://dor15t5xr7hhr" path="res://scene/ui/control.gd" id="1_lobh0"]
+[ext_resource type="PackedScene" uid="uid://c17jgc3pju5ou" path="res://scene/game.tscn" id="2_opgnf"]
+
+[node name="Control" type="Control" unique_id=1580449608]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_lobh0")
+scene = ExtResource("2_opgnf")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1831855357]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -100.0
+offset_top = -100.0
+offset_right = 100.0
+offset_bottom = 100.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="Button2" type="Button" parent="VBoxContainer" unique_id=2024996196]
+layout_mode = 2
+text = "reset"
+
+[node name="Button" type="Button" parent="VBoxContainer" unique_id=628493896]
+layout_mode = 2
+text = "main menu"
+
+[connection signal="pressed" from="VBoxContainer/Button2" to="." method="_on_button_2_pressed"]

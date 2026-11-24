@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="round_data" format=3 uid="uid://dpn12h2haqndr"]
+
+[ext_resource type="PackedScene" uid="uid://0wj4geqhnua5" path="res://scene/enemigo.tscn" id="1_pnvsj"]
+[ext_resource type="Script" uid="uid://dgeiyhj03vedh" path="res://scripts/round_data.gd" id="2_awfho"]
+
+[resource]
+script = ExtResource("2_awfho")
+metadata/_custom_type_script = "uid://dgeiyhj03vedh"

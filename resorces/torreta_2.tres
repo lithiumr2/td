@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="TurretData" format=3 uid="uid://bjkyjx5d63y3l"]
+
+[ext_resource type="Script" uid="uid://iajp26qb8xlp" path="res://scripts/turret_data.gd" id="1_1y5cj"]
+[ext_resource type="Texture2D" uid="uid://xx5u31f45bj6" path="res://tile/torreta 2.png" id="1_dhnea"]
+[ext_resource type="PackedScene" uid="uid://l6yup51mvx4p" path="res://scene/torreta_2.tscn" id="2_dhnea"]
+
+[resource]
+script = ExtResource("1_1y5cj")
+name = "torreta 2"
+description = "mm"
+texture = ExtResource("1_dhnea")
+scene = ExtResource("2_dhnea")
+size = Vector2i(1, 1)
+metadata/_custom_type_script = "uid://iajp26qb8xlp"

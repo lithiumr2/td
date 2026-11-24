@@ -1,0 +1,36 @@
+[gd_scene format=3 uid="uid://bxphxfiyk447t"]
+
+[ext_resource type="Script" uid="uid://nrfxo21riw4f" path="res://scripts/bala.gd" id="1_ui3sr"]
+[ext_resource type="Script" uid="uid://c06sscomkuhhv" path="res://scripts/area_daño.gd" id="2_83twe"]
+[ext_resource type="Texture2D" uid="uid://bddrk5vp55nmk" path="res://Sprites/bala.png" id="2_oig0l"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qug0s"]
+radius = 8.233822
+
+[node name="bala" type="CharacterBody2D" unique_id=2146440108]
+collision_layer = 8
+collision_mask = 8
+script = ExtResource("1_ui3sr")
+
+[node name="AreaDaño" type="Area2D" parent="." unique_id=1330956706 groups=["daño"]]
+y_sort_enabled = true
+collision_layer = 8
+collision_mask = 8
+script = ExtResource("2_83twe")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AreaDaño" unique_id=827900256]
+visible = false
+scale = Vector2(1.1678044, 0.28335148)
+shape = SubResource("CapsuleShape2D_qug0s")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=2105680346]
+texture = ExtResource("2_oig0l")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=1659150363]
+visible = false
+y_sort_enabled = true
+use_parent_material = true
+scale = Vector2(4.8353376, 3.4206398)
+
+[connection signal="area_entered" from="AreaDaño" to="AreaDaño" method="_on_area_entered"]
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_autodestruccion"]
